@@ -20,22 +20,37 @@ public:
         firstNode->data = i;
         firstNode->next = NULL;
     }
-    void append(int i)
+    void append(int i) // add to the end of node
     {
         worker = new Node;
-        worker->data = i;
-        worker->next = firstNode;
-        firstNode = worker;
+        worker = firstNode->next;
+        Node *temp = new Node;
+        temp = firstNode;
+        while(true)
+        {
+            if (worker == NULL)
+            {
+                worker = new Node;
+                worker->data = i;
+                temp->next = worker;
+                break;
+            }
+            else
+            {
+                temp = worker;
+                worker = worker->next;
+            }
+        }
     }
     void toString()
     {
         worker = firstNode;
-       while(worker->next != NULL)
-       {
-           
-           cout << worker->data << " ";
-           worker = worker->next;
-       }
+        while(worker->next != NULL)
+        {
+            
+            cout << worker->data << " ";
+            worker = worker->next;
+        }
     }
     virtual ~LnkdLst()
     {
@@ -55,8 +70,8 @@ public:
 private:
     struct Node
     {
-         int data;
-         Node *next;
+        int data;
+        Node *next;
     };
     Node *firstNode;
     Node *worker;
