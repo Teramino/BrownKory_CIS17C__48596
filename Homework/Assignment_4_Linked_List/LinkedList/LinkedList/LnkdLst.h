@@ -9,8 +9,10 @@
 #define	LNKDLST_H
 
 #include <string>
+#include <iomanip>
 using namespace std;
 
+template <class T>
 class LnkdLst
 {
 public:
@@ -20,7 +22,7 @@ public:
         lastNode = new Node;
         worker = new Node;
     }
-    LnkdLst(int i)
+    LnkdLst(T i)
     {
         firstNode = new Node;
         firstNode->data = i;
@@ -28,7 +30,7 @@ public:
         firstNode->next = NULL;
         lastNode = firstNode;
     }
-    void append(int i) // add to the end of nodes
+    void Append(T i) // add to the end of nodes
     {
         Node *prev = new Node;
         if (firstNode != NULL)
@@ -66,7 +68,7 @@ public:
 
     }
     
-    void prepend(int i) // add to the front of nodes
+    void Prepend(T i) // add to the front of nodes
     {
         worker = new Node;
         worker->data = i;
@@ -88,13 +90,13 @@ public:
         }
         
     }
-    void insertBefore(int data, int i)
+    void InsertBefore(T selection, T i)
     {
         Node *prev = firstNode;
         Node *temp = new Node;
-        if (firstNode->data == data)
+        if (firstNode->data == selection)
         {
-            prepend(i);
+            Prepend(i);
         }
         else
         {
@@ -110,7 +112,7 @@ public:
                     lastNode = worker;
                     break;
                 }
-                else if (worker->data == data) // inserts a new node before indicted data
+                else if (worker->data == selection) // inserts a new node before indicted data
                 {
                     temp->data = i;
                     temp->next = worker;
@@ -146,16 +148,30 @@ public:
 
     }
     
-    void insertAfter(int data, int i)
+    void InsertAfter(T selection, T i)
     {
         Node *prev = firstNode;
-        Node *temp = new Node;
-        if (firstNode->data == data)
+        Node *newNode = new Node;
+        if (firstNode->data == selection)
         {
             worker = new Node;
             worker->data = i;
             worker->next = firstNode;
             firstNode = worker;
+            
+            // adjust id's
+            worker = firstNode->next;
+            while(true)
+            {
+                if (worker != NULL)
+                {
+                    worker->id++;
+                    worker = worker->next;
+                }
+                else
+                    break;
+            }
+            
         }
         else
         {
@@ -171,18 +187,19 @@ public:
                     lastNode = worker;
                     break;
                 }
-                else if (worker->data == data) // inserts a new node after indicted data
+                else if (worker->data == selection) // inserts a new node after indicted data
                 {
                     Node *after = worker->next;
                     
-                    temp->data = i;
-                    temp->next = after;
-                    worker->next = temp;
-                    temp->id = worker->id + 1;
-                    after->id =  temp->id + 1;
+                    newNode->data = i;
+                    newNode->next = after;
+                    worker->next = newNode;
+                    newNode->id = worker->id + 1;
+                    after->id =  newNode->id + 1;
+                    
                     
                     // adjust id's
-                    worker = temp;
+                    worker = after->next;
                     while(true)
                     {
                         if (worker != NULL)
@@ -205,11 +222,11 @@ public:
             }
             
         }
-        delete prev;
-        delete temp;
+//        delete prev;
+//        delete temp;
     }
     
-    int extract(int index)
+    T Extract(int index)
     {
         if (firstNode->id == index)
         {
@@ -239,7 +256,7 @@ public:
         return 0;
     }
     
-    int length()
+    int ListLength()
     {
         return lastNode->id;
     }
@@ -250,8 +267,9 @@ public:
         while(worker!= NULL)
         {
             
-            cout << "Node ID: " << worker->id
-                 << " data: " << worker->data << endl;
+            cout << "Node-" << worker->id
+                 << setw(10) << "data: " << worker->data
+                 << setw(10) << " ->\n";
             worker = worker->next;
         }
         cout << endl;
@@ -275,7 +293,7 @@ private:
     struct Node
     {
         int id;
-        int data;
+        T data;
         Node *next;
     };
     
