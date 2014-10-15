@@ -282,7 +282,7 @@ public:
         while(temp->next != NULL)
         {
             worker = temp;
-            cout << "Node-" << worker->data << " deleted\n";
+            cout << "Node-" << worker->id << " deleted\n";
             delete worker;
             temp = temp->next;
             node++;
