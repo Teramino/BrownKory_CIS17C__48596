@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C42E552B-4EA0-4F7B-9558-1EA4867224EF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Assignment6</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FAFDE5E3A82A0B9459A54CCDA2D7E0D43367B7DF</key>
+		<string>https://github.com/Teramino/BrownKory_CIS17C__48596.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Homework/Assignment6/Assignment6.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FAFDE5E3A82A0B9459A54CCDA2D7E0D43367B7DF</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Teramino/BrownKory_CIS17C__48596.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FAFDE5E3A82A0B9459A54CCDA2D7E0D43367B7DF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FAFDE5E3A82A0B9459A54CCDA2D7E0D43367B7DF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BrownKory_CIS17C__48596</string>
+		</dict>
+	</array>
+</dict>
+</plist>
