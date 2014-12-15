@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 #define V 7
@@ -34,13 +35,15 @@ public:
     
     void printMST(int parent[], int n, int graph[][V])
     {
-        cout<<"Edge  Edge Weight\n";
+        cout << "Spanning the GRID\n\n"
+             << "Edge  Edge Weight\n"
+             << setw(16) << "[Not in Order]\n";
         for (int i = 1; i < V; i++){
-            int startAirPortNumber = parent[i];
-            int endAirPortNumber = i;
+            int startPoint = parent[i];
+            int endPoint = i;
             string airPort = "";
             
-            switch(startAirPortNumber)
+            switch(startPoint)
             {
                 case 0:airPort = "SFO";
                     break;
@@ -60,7 +63,7 @@ public:
             
             cout << airPort <<" - ";
             
-            switch(endAirPortNumber)
+            switch(endPoint)
             {
                 case 0:airPort = "SFO";
                     break;

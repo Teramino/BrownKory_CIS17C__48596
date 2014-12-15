@@ -1,16 +1,17 @@
-//
-//  main.cpp
-//  Final
-//
-//  Created by Kory Brown on 12/12/14.
-//  Copyright (c) 2014 Kory Brown. All rights reserved.
-//
+    //
+    //  main.cpp
+    //  Final
+    //
+    //  Created by Kory Brown on 12/12/14.
+    //  Copyright (c) 2014 Kory Brown. All rights reserved.
+    //
 
 #include"HashTable.h"
 #include "Recursive.h"
 #include "Sorting.h"
 #include "WaitLine.h"
 #include "WeightedGraph.h"
+#include "BinaryTree.h"
 
 #include <iomanip>
 
@@ -21,15 +22,19 @@ int main()
     Sorting sort;
     WaitLine line;
     WeightedGraph graph;
+    BinaryTree tree;
     
     bool quit = false;
+    bool isHash =  false;
     int choice = 0;
     
-    cout << "==================================================\n"
-         << setw(30) << "17C FINAL\n"
-         << "==================================================\n\n";
     while(!quit)
     {
+        cout << "==================================================\n"
+        << setw(30) << "17C FINAL\n"
+        << setw(32) << "By Kory Brown\n"
+        << "==================================================\n\n";
+        
         cout << "1) Hashing\n"
         << "2) Stacks\n"
         << "3) Queues\n"
@@ -46,6 +51,7 @@ int main()
         {
             case 1:
                 hash.simulate();
+                isHash = true;
                 break;
             case 2:
                 recursive.simulate();
@@ -57,7 +63,10 @@ int main()
                 sort.simulate();
                 break;
             case 5:
-                cout << "Waiting\n";
+                if(isHash)
+                    tree.simulate();
+                else
+                    cout << "Need to run hash first\n\n";
                 break;
             case 6:
                 graph.simulate();
@@ -71,7 +80,7 @@ int main()
         }
         cout << endl << endl;
     }
-
+    
     
     return 0;
 }

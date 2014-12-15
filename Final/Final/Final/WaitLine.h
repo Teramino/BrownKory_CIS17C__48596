@@ -68,7 +68,7 @@ public:
                     {
                         if (clerks[clerk].getCustomerLineCount() == 0)
                         {
-                            cout <<"Clerk " << clerks[clerk].getID() << " going in break\n";
+                            cout <<"Clerk " << clerks[clerk].getID() << " task is done\n";
                             clerks.erase(clerks.begin()+clerk);
                             serve.push(customer);
                         }
@@ -83,7 +83,7 @@ public:
                     cout << "Customers in line: "
                     << serve.size() << endl;
                     cout<<"Customers served: "
-                    <<customersServed<<endl;
+                    << customersServed <<endl << endl;
                 }
                 if((timer/1000)%60 == 0)
                 {
@@ -136,7 +136,6 @@ public:
                 i++;
             }
         }
-        cout << endl << endl;
         int avgWaited = totalWaitTime/customersServed;
         cout << "Avg wait time: " << avgWaited << endl;
     }

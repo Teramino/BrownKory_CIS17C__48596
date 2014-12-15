@@ -68,7 +68,7 @@ public:
         
         double delta_time = double(end - begin) / CLOCKS_PER_SEC;
         
-        cout << "Search time in " << loopSize << " loops: " << delta_time << " CPU time\n\n";
+        cout << "Time of search for " << loopSize << " loops: " << delta_time << " CPU time\n\n";
     }
     void generateInitials(string file, int numOfInitials, int const SIZE)
     {
@@ -271,8 +271,8 @@ public:
                 longestChain = table[i].size();
         }
         
-        cout << "Size of table: " << size << '\n';
-        cout << "Number of collisions: " << numOfCollisions << '\n';
+        cout << "Table Size: " << size << '\n';
+        cout << "Collisions: " << numOfCollisions << '\n';
         cout << "Longest chain: " << longestChain << "\n\n";
     }
 };

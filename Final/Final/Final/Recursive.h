@@ -30,7 +30,7 @@ public:
         cin >> angDeg;
         
         float angRad=angDeg*atan(1)/45;
-        cout << "angle: "<< angDeg <<"  degrees" << endl;
+        cout << "\nangle: "<< angDeg <<"  degrees" << endl;
         cout << "hypsine(Computer function): "<< sinh(angRad) << endl;
         cout << "hypsine(Recursive function): "<< h(angRad,letter) << endl;
         cout << "hypcosine(Computer function): "<< cosh(angRad)<<endl;

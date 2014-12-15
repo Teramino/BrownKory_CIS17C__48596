@@ -23,6 +23,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3425C95A1A3C54260018D784 /* BinaryTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
+		3425C95B1A3C54260018D784 /* BinaryTreeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryTreeHelper.h; sourceTree = "<group>"; };
 		34944F831A3BFC2F0070B225 /* Final */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Final; sourceTree = BUILT_PRODUCTS_DIR; };
 		34944F861A3BFC2F0070B225 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		34944F8D1A3BFCCB0070B225 /* HashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashTable.h; sourceTree = "<group>"; };
@@ -65,6 +67,8 @@
 		34944F851A3BFC2F0070B225 /* Final */ = {
 			isa = PBXGroup;
 			children = (
+				3425C95A1A3C54260018D784 /* BinaryTree.h */,
+				3425C95B1A3C54260018D784 /* BinaryTreeHelper.h */,
 				34944F8D1A3BFCCB0070B225 /* HashTable.h */,
 				34944F8E1A3BFCCB0070B225 /* MinimumSpanningTree.h */,
 				34944F8F1A3BFCCC0070B225 /* Recursive.h */,
@@ -248,6 +252,7 @@
 				34944F8C1A3BFC2F0070B225 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
