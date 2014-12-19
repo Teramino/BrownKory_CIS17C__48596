@@ -21,7 +21,7 @@ class MinimumSpanningTree
 public:
     MinimumSpanningTree(){};
     ~MinimumSpanningTree(){};
-
+    
     int minKey(int key[], bool mstSet[])
     {
         int min = INT_MAX, min_index=0;
@@ -36,8 +36,8 @@ public:
     void printMST(int parent[], int n, int graph[][V])
     {
         cout << "Spanning the GRID\n\n"
-             << "Edge  Edge Weight\n"
-             << setw(16) << "[Not in Order]\n";
+        << "Edge  Edge Weight\n"
+        << setw(16) << "[Not in Order]\n";
         for (int i = 1; i < V; i++){
             int startPoint = parent[i];
             int endPoint = i;
@@ -61,6 +61,20 @@ public:
                     break;
             }
             
+                //            switch(startPoint)
+                //            {
+                //                case 0:airPort = "Car Stop";
+                //                    break;
+                //                case 1: airPort = "Bank";
+                //                    break;
+                //                case 2: airPort = "Hospital";
+                //                    break;
+                //                case 3: airPort = "Gas Station";
+                //                    break;
+                //                case 4: airPort = "Groccery Store";
+                //                    break;
+                //            }
+            
             cout << airPort <<" - ";
             
             switch(endPoint)
@@ -80,16 +94,30 @@ public:
                 case 6: airPort = "BOS";
                     break;
             }
+            
+                //            switch(endPoint)
+                //            {
+                //                case 0:airPort = "Car Stop";
+                //                    break;
+                //                case 1: airPort = "Bank";
+                //                    break;
+                //                case 2: airPort = "Hospital";
+                //                    break;
+                //                case 3: airPort = "Gas Station";
+                //                    break;
+                //                case 4: airPort = "Groccery Store";
+                //                    break;
+                //            }
             cout << airPort << "  " <<graph[i][parent[i]]<<endl;
         }
     }
-
+    
     void primMST(int graph[][V])
     {
         int parent[V];
         int key[V];
         bool mstSet[V];
-    
+        
         for (int i = 0; i < V; i++)
             key[i] = INT_MAX, mstSet[i] = false;
         
@@ -99,9 +127,9 @@ public:
         for (int count = 0; count < V - 1; count++)
         {
             int u = minKey(key, mstSet);
-
+            
             mstSet[u] = true;
-
+            
             for (int v = 0; v < V; v++)
                 if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v])
                     parent[v] = u, key[v] = graph[u][v];

@@ -41,7 +41,7 @@ public:
             begin = clock();
             tree.Search(tree.root,nameList[i]);
             end = clock();
-            time = double(end - begin) / CLOCKS_PER_MSEC;
+            time = float(end - begin) / CLOCKS_PER_MSEC;
             timeSearch[i] = time;
             
             if(timeSearch[i] < time_fastest)

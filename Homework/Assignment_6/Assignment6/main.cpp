@@ -5,64 +5,97 @@
  * Purpose:  Explore creation of a linked list class
  */
 
-//System Libraries
+    //System Libraries
 #include <iostream>
 #include <stdlib.h>
+
+
+    // Our Library
+#include "LnkdLst.h"
+#include "Doubley.h"
+#include "Circularly.h"
+#include "Queue.h"
 #include "WaitLine.h"
 
 using namespace std;
 
-//Our Library
-#include "LnkdLst.h"
-
 int data = 0;
-//string data = "";
+    //string data = "";
+
+void DoubleLinkedList();
+void QueueLinkedList();
 template<class T>
-void DoubleLinkedList(LnkdLst<T> & );
-template<class T>
-void QueueLinkedList(LnkdLst<T> & );
-template<class T>
-void CircularlyLinkedList(LnkdLst<T> &list);
+void CircularlyLinkedList();
+void prompt();
+
+LnkdLst<int> l;
+Doubley<int> d;
+Circularly<int> c;
+Queue<int> q;
 
 int main()
 {
-    cout << "Enter data for your first node: ";
-    cin  >> data;
-    //cin.clear();
-    cout << endl;
-    LnkdLst<int> list(data, " ");
-//
-
-//    DoubleLinkedList(list);
-    CircularlyLinkedList(list);
+    prompt();
     
-//    WaitLine line;
-//    line.simulate ( 2000,  0.1,  40);
-//    //Exit stage right!
+        // Exit stage right!
     return 0;
 }
 
-template<class T>
-void DoubleLinkedList(LnkdLst<T> &list)
+void prompt()
 {
     int choice = 0;
     bool quit = false;
-//    system("clear");
-    T selection;
     while(!quit)
     {
-        cout << "1)Append\n"
-             << "2)Prepend Node\n"
-             << "3)Insert Before\n"
-             << "4)Insert After\n"
-             << "5)Extract\n"
-             << "6)Show entered data\n"
-             << "0)Quit\n";
+        cout << "1) Doubley Linked List\n"
+        << "2) Circulary Linked List\n"
+        << "3) Queue\n"
+        << "0) Quit\n";
         
         cout << "choice: ";
         cin  >> choice;
         cout << endl;
         
+        switch (choice)
+        {
+                
+            case 1:
+                DoubleLinkedList();
+                break;
+                
+            case 2:
+                CircularlyLinkedList<int>();
+                break;
+                
+            case 3:
+                QueueLinkedList();
+                break;
+            case 0:
+                quit = true;
+                break;
+                
+            default:
+                break;
+        }
+        cout << endl;
+    }
+}
+
+void DoubleLinkedList()
+{
+    int choice = 0;
+    bool quit = false;
+    
+    while(!quit)
+    {
+        cout << "1) Append\n"
+        << "2) Prepend Node\n"
+        << "3) Show entered data\n"
+        << "0) Quit\n";
+        
+        cout << "choice: ";
+        cin  >> choice;
+        cout << endl;
         
         switch (choice)
         {
@@ -70,47 +103,54 @@ void DoubleLinkedList(LnkdLst<T> &list)
             case 1:
                 cout << "Enter data: ";
                 cin  >> data;
-                    //cin.clear();
-                list.Append(data);
+                d.Append(data);
                 break;
                 
             case 2:
                 cout << "Enter data: ";
                 cin  >> data;
-                    //cin.clear();
-                list.Prepend(data);
+                d.Prepend(data);
                 break;
-                
             case 3:
-                cout << "Enter the data you want to insert before (if data doesnt exist a new node will added at end of list): ";
-                cin  >> selection;
-                cin.clear();
-                cout << "Enter data: ";
-                cin  >> data;
-                    //cin.clear();
-                list.InsertBefore(selection, data);
+                d.toString();
                 break;
                 
-            case 4:
-                cout << "Enter the data you want to insert after (if data doesnt exist a new node will added at end of list): ";
-                cin  >> selection;
-                cin.clear();
-                cout << "Enter data: ";
-                cin  >> data;
-                    //cin.clear();
-                list.InsertAfter(selection, data);
+            case 0:
+                quit = true;
                 break;
                 
-            case 5:
-                cout << "The length of the list is " << list.ListLength()
-                << "\nWhat node do you want to extract: ";
-                cin  >> choice;
-                    //cin.clear();
-                cout << "Node " << data << " contains " << list.Extract(choice) << endl;
+            default:
                 break;
+        }
+        cout << endl;
+    }
+}
+
+void QueueLinkedList()
+{
+    int choice = 0;
+    bool quit = false;
+    while(!quit)
+    {
+        cout << "1) Queue\n"
+        << "2) Priority Queue\n"
+        << "0) Quit\n";
+        
+        cout << "choice: ";
+        cin  >> choice;
+        cout << endl;
+        
+        WaitLine line;
+        switch (choice)
+        {
                 
-            case 6:
-                list.doubleyToString();
+            case 1:
+                
+                line.simulate ( 2000,  0.1,  40);
+                break;
+            case 2:
+                    //                WaitLine line;
+                line.simulatePriorityLine ( 2000,  0.1,  40);
                 break;
                 
             case 0:
@@ -125,49 +165,7 @@ void DoubleLinkedList(LnkdLst<T> &list)
 }
 
 template<class T>
-void QueueLinkedList(LnkdLst<T> &list)
-{
-    int choice = 0;
-    bool quit = false;
-        //    system("clear");
-    T que;
-    while(!quit)
-    {
-        cout << "1)Enqueue\n"
-        << "2)Dequeue\n"
-        << "0)Quit\n";
-        
-        cout << "choice: ";
-        cin  >> choice;
-        cout << endl;
-        
-        switch (choice)
-        {
-                
-            case 1:
-                cout << "Enter data: ";
-                cin  >> data;
-                    //cin.clear();
-                list.Prepend(data);
-                break;
-            case 2:
-                que = list.Dequeue();
-//                cout << "
-                break;
-                
-            case 0:
-                quit = true;
-                break;
-                
-            default:
-                break;
-        }
-        cout << endl;
-    }
-}
-
-template<class T>
-void CircularlyLinkedList(LnkdLst<T> &list)
+void CircularlyLinkedList()
 {
     int choice = 0;
     bool quit = false;
@@ -175,14 +173,14 @@ void CircularlyLinkedList(LnkdLst<T> &list)
     T selection;
     while(!quit)
     {
-        cout << "1)Append\n"
-        << "2)Prepend Node\n"
-        << "3)Insert Before\n"
-        << "4)Insert After\n"
-        << "5)Extract\n"
-        << "6)Sort\n"
-        << "7)Show entered data\n"
-        << "0)Quit\n";
+        cout << "1) Append\n"
+        << "2) Prepend Node\n"
+        << "3) Insert Before\n"
+        << "4) Insert After\n"
+        << "5) Extract\n"
+        << "6) Sort\n"
+        << "7) Show entered data\n"
+        << "0) Quit\n";
         
         cout << "choice: ";
         cin  >> choice;
@@ -195,15 +193,13 @@ void CircularlyLinkedList(LnkdLst<T> &list)
             case 1:
                 cout << "Enter data: ";
                 cin  >> data;
-                    //cin.clear();
-                list.circularlyAppend(data);
+                c.Append(data);
                 break;
                 
             case 2:
                 cout << "Enter data: ";
                 cin  >> data;
-                    //cin.clear();
-                list.circularlyPrepend(data);
+                c.Prepend(data);
                 break;
                 
             case 3:
@@ -212,8 +208,7 @@ void CircularlyLinkedList(LnkdLst<T> &list)
                 cin.clear();
                 cout << "Enter data: ";
                 cin  >> data;
-                    //cin.clear();
-                list.circularlyInsertBefore(selection, data);
+                c.InsertBefore(selection, data);
                 break;
                 
             case 4:
@@ -222,23 +217,22 @@ void CircularlyLinkedList(LnkdLst<T> &list)
                 cin.clear();
                 cout << "Enter data: ";
                 cin  >> data;
-                    //cin.clear();
-                list.circularlyInsertAfter(selection, data);
+                c.InsertAfter(selection, data);
                 break;
                 
             case 5:
-                cout << "The length of the list is " << list.ListLength()
+                cout << "The length of the list is " << c.ListLength()
                 << "\nWhat node do you want to extract: ";
                 cin  >> choice;
                     //cin.clear();
-                cout << "Node " << data << " contains " << list.circularlyExtract(choice) << endl;
+                cout << "Node " << data << " contains " << c.Extract(choice) << endl;
                 break;
-              
+                
             case 6:
-                 list.circularSort();
+                c.Sort();
                 break;
             case 7:
-                list.circularlyToString();
+                c.toString();
                 break;
                 
             case 0:

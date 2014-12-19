@@ -66,7 +66,7 @@ public:
         
         clock_t end = clock();
         
-        double delta_time = double(end - begin) / CLOCKS_PER_SEC;
+        float delta_time = float(end - begin) / CLOCKS_PER_SEC;
         
         cout << "Time of search for " << loopSize << " loops: " << delta_time << " CPU time\n\n";
     }

@@ -14,16 +14,24 @@ class Customer
 private:
     int clock;
     int transactionTime;
-    int numberOfArrivals;
+    int customerID;
   
 public:
     Customer(){}
     
-    Customer (int clock, int transactionTime, int numberOfArrivals)
+    Customer (int clock, int transactionTime, int arrivalNumber)
     {
         this->clock = clock;
         this->transactionTime = transactionTime;
-        this->numberOfArrivals = numberOfArrivals;
+        this->customerID = arrivalNumber;
+    }
+    
+    Customer& operator=(const Customer &right)
+    {
+        this->clock = right.clock;
+        this->transactionTime = right.transactionTime;
+        this->customerID = right.customerID;
+        return *this;
     }
     
     int getTransactionTime()
@@ -38,7 +46,7 @@ public:
     
     int getCustomerNumber()
     {
-        return numberOfArrivals;
+        return customerID;
     }
     
 };

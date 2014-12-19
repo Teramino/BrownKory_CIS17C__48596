@@ -27,16 +27,16 @@ LnkdLst<Person> people;
 const string file = "Person Data";
 const int NUM_PEOPLE = 24;
 
-int main()
-{
-    
-    CreatePeople();
-    //DisplayPeople();
-    //AddDataToPerson();
-    Prompt();
-    
-    return 0;
-}
+//int main()
+//{
+//    
+//    CreatePeople();
+//    //DisplayPeople();
+//    //AddDataToPerson();
+//    Prompt();
+//    
+//    return 0;
+//}
 
 void Prompt()
 {

@@ -107,6 +107,19 @@ public:
             case 6: airPortName = "BOS";
                 break;
         }
+//        switch(airPort)
+//        {
+//            case 0:airPortName = "Car Stop";
+//                break;
+//            case 1: airPortName = "Bank";
+//                break;
+//            case 2: airPortName = "Hospital";
+//                break;
+//            case 3: airPortName = "Gas Station";
+//                break;
+//            case 4: airPortName = "Groccery Store";
+//                break;
+//        }
         return airPortName;
     }
     
