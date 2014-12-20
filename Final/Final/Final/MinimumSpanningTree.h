@@ -61,20 +61,6 @@ public:
                     break;
             }
             
-                //            switch(startPoint)
-                //            {
-                //                case 0:airPort = "Car Stop";
-                //                    break;
-                //                case 1: airPort = "Bank";
-                //                    break;
-                //                case 2: airPort = "Hospital";
-                //                    break;
-                //                case 3: airPort = "Gas Station";
-                //                    break;
-                //                case 4: airPort = "Groccery Store";
-                //                    break;
-                //            }
-            
             cout << airPort <<" - ";
             
             switch(endPoint)
@@ -95,19 +81,6 @@ public:
                     break;
             }
             
-                //            switch(endPoint)
-                //            {
-                //                case 0:airPort = "Car Stop";
-                //                    break;
-                //                case 1: airPort = "Bank";
-                //                    break;
-                //                case 2: airPort = "Hospital";
-                //                    break;
-                //                case 3: airPort = "Gas Station";
-                //                    break;
-                //                case 4: airPort = "Groccery Store";
-                //                    break;
-                //            }
             cout << airPort << "  " <<graph[i][parent[i]]<<endl;
         }
     }

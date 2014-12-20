@@ -7,12 +7,16 @@ using namespace std;
 #define BINARY_SEARCH_TREE
 
 template <class T>
-class Stack : public stack<T> 
-{ 
+class Stack : public stack<T>
+{
+private:
+    
+    stack<T> myStack;
 public:
 	T pop() 
 	{
-		T tmp = top();
+        
+        T tmp = myStack.top();
 		stack<T>::pop();
 		return tmp;
 	}
@@ -21,10 +25,14 @@ public:
 template <class T>
 class Queue : public queue<T> 
 {
+private:
+    
+    queue<T> myQueue;
+    
 public:
 	T dequeue() 
 	{
-		T tmp = front();
+		T tmp = myQueue.front();
 		queue<T>::pop();
 		return tmp;
 	}
@@ -44,7 +52,7 @@ public:
 		left = right = 0;
 	}
 
-	BSTNode(const T& e, BSTNode<T> *l = 0, BSTNode<T> *r = 0) 
+	BSTNode(const T& e, BSTNode<T> *l = 0, BSTNode<T> *r = 0)
 	{
 		el = e; left = l; right = r;
 	}

@@ -33,26 +33,29 @@ public:
         
         
         cout << setw(30) << "[Shown by shortest distance]";
-        for (int count = 0; count < V-1; count++)
+        for (int count = 0; count < V; count++)
         {
             int u = minDistance(dist, sptSet);
             if (dist[u] != 0) // doesnt show the Airport started from
             {
                 string airport = getAirport(u);
+//                if (airport == "JFK")
+//                {
                 cout << "-> Conneted to: " << airport << " distance: " << dist[u] << endl;
+//                    break;
+//                }
             }
             sptSet[u] = true; // set true for being processed
             
             for (int v = 0; v < V; v++)
+            {
                 if (!sptSet[v] && graph[u][v] && dist[u] != INT_MAX
                     && dist[u]+graph[u][v] < dist[v])
                 {
                     dist[v] = dist[u] + graph[u][v];
                 }
+            }
         }
-        
-        
-            //        printSolution(dist);
     }
     
     
@@ -107,20 +110,7 @@ public:
             case 6: airPortName = "BOS";
                 break;
         }
-//        switch(airPort)
-//        {
-//            case 0:airPortName = "Car Stop";
-//                break;
-//            case 1: airPortName = "Bank";
-//                break;
-//            case 2: airPortName = "Hospital";
-//                break;
-//            case 3: airPortName = "Gas Station";
-//                break;
-//            case 4: airPortName = "Groccery Store";
-//                break;
-//        }
-        return airPortName;
+                return airPortName;
     }
     
 };
